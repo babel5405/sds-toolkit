@@ -1,0 +1,27 @@
+{
+    "Web": {
+        "Enable": true,
+        "Path": "./",
+        "Port": 5500,
+        "ReloadDelay": 0
+    },
+    "File": {
+        "Enable": true,
+        "Path": "./",
+        "Excluded": [
+            ""
+        ],
+        "ignoreDots": true,
+        "Commands": {
+            "Add": [
+                ["echo test", 0]
+            ],
+            "Remove": [
+                ["echo test", 0]
+            ],
+            "Save": [
+                ["echo test", 0]
+            ]
+        }
+    }
+}
