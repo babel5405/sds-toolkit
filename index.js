@@ -1,14 +1,13 @@
 const { exec } = require('child_process');
 let Config = require("./config.json");
+const {resolve} = require("path");
 let Chokidar = null;
 let BrowserSync = null;
-let status = new Object;
-// Want to make a default library of configs.
-// if (!require("./config.json")) {
-//     Config = require("./lib/Config.js");
-// } else {
-//     Config = require("./config.json");
-// }
+
+// Resolve relative paths to aboslute so we can
+// allow users to provide relative directories.
+Config.Web.Path = resolve(Config.Web.Path);
+Config.Web.Path = resolve(Config.File.Path);
 
 if (Config.Web.Enable) {
     BrowserSync = require("browser-sync").create();
@@ -21,10 +20,6 @@ if (Config.File.Enable) {
 if (Chokidar != null) {
     let Watcher;
     let ready = false;
-
-    if (Config.File.Path == "./") {
-        Config.File.Path = process.cwd();
-    }
 
     if (Config.File.ignoreDots == true) {
         Watcher = Chokidar.watch(Config.File.Path, {ignored: Config.File.Excluded, persistent: true});
@@ -101,11 +96,6 @@ if (Chokidar != null) {
 }
 
 if (BrowserSync) {
-
-    if (Config.Web.Path == "./") {
-        Config.Web.Path = process.cwd();
-    }
-
     BrowserSync.init({
         server: Config.Web.Path,
         port: 5500
