@@ -2,6 +2,7 @@
 
 A live reload web server with built in command processing, command delays, and smart reloading.
 
+
 # Features:
 
  - A file watcher to keep an eye on file changes including addition, edits, and removal.
@@ -15,8 +16,27 @@ A live reload web server with built in command processing, command delays, and s
  - Easily filter DOT files like .gitignore with a single config setting.
 
 
-# Configuration Settings
+# Installation
 
+**NPM**
+
+> npm install https://github.com/babel5405/sds-toolkit.git
+
+> Edit the config located with the index.json as described below, then start with node ./
+
+**YARN**
+
+> yarn add https://github.com/babel5405/sds-toolkit.git
+
+> Edit the config located with the index.json as described below, then start with node ./
+
+**GIT**
+> git clone https://github.com/babel5405/sds-toolkit.git
+
+> Edit the config located with the index.json as described below, then start with node ./
+
+
+# Configuration Settings
 
 ```json
 {
@@ -51,7 +71,9 @@ A live reload web server with built in command processing, command delays, and s
 }
 ```
 
+
 # Configuration Walkthrough
+
 
 **Web**
 ---
