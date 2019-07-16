@@ -51,4 +51,9 @@ A live reload web server with built in command processing, command delays, and s
 }
 ```
 
+# Configuration Walkthrough
 
+**Web**
+
+> **Enable**
+> Enable or Disable the integrated web server. Set this to false if you don't want to use the built in web server. (Note that this means you won't have automatic reloading in web projects unless you're using another solution.)
