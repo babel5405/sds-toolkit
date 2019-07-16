@@ -1,6 +1,6 @@
 # sds-toolkit
 
-A live reload web server with built in command processing, command delays, and smart reloading.
+A live reload web server with built in command processing, command delays, and smart reloading. sds-toolkit is built on node.js utilizing Chokidar and Browsersync for file tracking and automatic page reload features respectively.
 
 
 # Features:
