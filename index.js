@@ -7,7 +7,7 @@ let BrowserSync = null;
 // Resolve relative paths to aboslute so we can
 // allow users to provide relative directories.
 Config.Web.Path = resolve(Config.Web.Path);
-Config.Web.Path = resolve(Config.File.Path);
+Config.File.Path = resolve(Config.File.Path);
 
 if (Config.Web.Enable) {
     BrowserSync = require("browser-sync").create();
@@ -30,24 +30,29 @@ if (Chokidar != null) {
     }
 
     if (Config.File.Excluded.length > 0) {
-        console.log("==================================================================================");
-        console.log("Loading File Watcher");
-        console.log("==================================================================================");
+        console.log("\u001b[34m==================================================================================");
+        console.log("\u001b[1mLoading File Watcher");
+        console.log("Path: \u001b[32m" + Config.File.Path)
+        console.log("\u001b[34m==================================================================================");
         console.log("The following files are being excluded:");
-        console.log("==================================================================================");
+        console.log("\u001b[34m==================================================================================");
         Config.File.Excluded.forEach(function(file) {
-            console.log(file);
+            console.log("\u001b[33m" + file);
         });
-        console.log("==================================================================================");
+        console.log("\u001b[34m==================================================================================");
         Watcher = Chokidar.watch(Config.File.Path, {ignored: Config.File.Excluded, persistent: true});
     } else {
+        console.log("\u001b[34m==================================================================================");
+        console.log("\u001b[1mLoading File Watcher");
+        console.log("Path: \u001b[32m" + Config.File.Path)
+        console.log("\u001b[34m==================================================================================");
         Watcher = Chokidar.watch(Config.File.Path, {persistent: true});
     }
 
     Watcher.on('ready', function() {
-        console.log("==================================================================================");
-        console.log("File Watcher Loaded");
-        console.log("==================================================================================");
+        console.log("\u001b[34m==================================================================================");
+        console.log("\u001b[1mFile Watcher Loaded");
+        console.log("\u001b[34m==================================================================================");
         ready = true;
 
         // Start the Web Server after the File Watcher Loads:
@@ -61,7 +66,7 @@ if (Chokidar != null) {
 
     Watcher.on('add', function(path) {
             if (Config.Log.Verbose) {
-                console.log('File', path, 'has been added');
+                console.log('\u001b[32mFile', path, 'has been added');
             }
             if (ready) {
                 RunCommands(Config.File.Commands.Add).then(function(response) {
@@ -74,7 +79,7 @@ if (Chokidar != null) {
 
     Watcher.on('addDir', function(path) {
         if (Config.Log.Verbose) {
-            console.log('Directory', path, 'has been added');
+            console.log('\u001b[32mDirectory', path, 'has been added');
         }
         if (ready) {
             RunCommands(Config.File.Commands.Add).then(function(response) {
@@ -87,7 +92,7 @@ if (Chokidar != null) {
 
     Watcher.on('change', function(path) {
         if (Config.Log.Verbose) {
-            console.log('File', path, 'has been changed');
+            console.log('\u001b[33mFile', path, 'has been changed');
         }
         if (ready) {
             RunCommands(Config.File.Commands.Save).then(function(response) {
@@ -101,7 +106,7 @@ if (Chokidar != null) {
 
     Watcher.on('unlink', function(path) {
         if (Config.Log.Verbose) {
-            console.log('File', path, 'has been removed');
+            console.log('\u001b[31mFile', path, 'has been removed');
         }
         if (ready) {
             RunCommands(Config.File.Commands.Remove).then(function(response) {
@@ -115,7 +120,7 @@ if (Chokidar != null) {
 
     Watcher.on('unlinkDir', function(path) {
         if (Config.Log.Verbose) {
-            console.log('Directory', path, 'has been removed');
+            console.log('\u001b[31mDirectory', path, 'has been removed');
         }
         if (ready) {
             RunCommands(Config.File.Commands.Remove).then(function(response) {
@@ -128,7 +133,13 @@ if (Chokidar != null) {
     });
 
     Watcher.on('error', function(error) {
-        console.error('Error happened', error);
+        console.log("\u001b[31m==================================================================================");
+        console.log("==================================================================================");
+        console.log("\u001b[31m==================================================================================");
+        console.error('\u001b[33mError happened', error);
+        console.log("\u001b[31m==================================================================================");
+        console.log("==================================================================================");
+        console.log("\u001b[31m==================================================================================");
     });
 }
 
