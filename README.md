@@ -32,7 +32,7 @@ A live reload web server with built in command processing, command delays, and s
         "Excluded": [
             ""
         ],
-        "ignoreDots": true,
+        "IgnoreDots": true,
         "Commands": {
             "Add": [
                 ["echo test", 0]
@@ -81,9 +81,45 @@ A live reload web server with built in command processing, command delays, and s
 > This is an array of files, extensions, and directories to ignore.
 > 
 > **Example (Don't copy-paste this into your config, it won't work.)**
-> ```[
->   "", **--Empty strings will be ignored automatically.**
->   "*.css", **--Ignore all CSS files**
->   "\**/tests/\**/*", **--Ignore the tests directory.**
->  "readme.md" **--Ignore any files called readme.md.**
-> ]```
+> ```
+> [
+>   "",                     **--Empty strings will be ignored automatically.**
+>   "*.css",                **--Ignore all CSS files**
+>   "\**/tests/\**/*",      **--Ignore the tests directory.**
+>  "readme.md",             **--Ignore any files called readme.md.**
+>  "^[a-z]$"                **--Ignore any files that match a regex rule. (Be careful when using regex, as json doesn't always play nice with the syntax.)**
+> ]
+> ```
+
+> **"IgnoreDots":**
+> True or False. This will automatically apply the regex string /(^|[\/\\])\../ as an excluded file.
+
+> **"Commands":**
+> This section is separated into three array's with arrays of commands, it's the most complicated portion of the config file.
+> 
+> **Example (Don't copy-paste this into your config, it won't work.)**
+> ```
+> "Commands": {                                        **--This is the opening block of this section.**
+            "Add": [                                   **--This is the array which houses each command for the file added event.**
+                ["echo test", 0],                      **--This is a basic command, it does it's thing and has a delay of 0 seconds.**
+                ["echo test", 1],                      **--This is the same as the command above, except it has a delay of one second.**
+                ["lessc main.less main.css", 0],       **--This command uses file paths, all paths will be relative to the current working directory (cwd) of sds-toolkit.**
+                ["echo 'test 2'", 1],                  **--This command needs a string which must be quoted, it uses single quotes to avoid conflicts with the json syntax.**
+                ["echo completed", 0]                  **--This command is the last command, it doesn't have a comma (,) after it because it's the end of the list.**
+            ],
+            "Remove": [                                **--This is the array which houses each command for the file removed event.**
+                ["echo test", 0]
+            ],
+            "Save": [                                  **--This is the array which houses each command for the file changed event.**
+                ["echo test", 0]
+            ]
+        }
+> ```
+
+**Log**
+---
+
+> **"Verbose":**
+> True or False. This tells sds-toolkit whether it should output all events or not. Turned on, it will output every time a file is added or changed or a command is ran. (This includes during startup.)
+> 
+> Note however that command output and page reload notices will be shown regardless of whether this is true or false.
