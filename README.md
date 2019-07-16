@@ -81,9 +81,9 @@ A live reload web server with built in command processing, command delays, and s
 > This is an array of files, extensions, and directories to ignore.
 > 
 > **Example (Don't copy-paste this into your config, it won't work.)**
-> [
+> ```[
 >   "", **--Empty strings will be ignored automatically.**
 >   "*.css", **--Ignore all CSS files**
 >   "\**/tests/\**/*", **--Ignore the tests directory.**
 >  "readme.md" **--Ignore any files called readme.md.**
-> ]
+> ]```
