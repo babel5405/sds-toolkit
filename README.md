@@ -18,7 +18,7 @@ A live reload web server with built in command processing, command delays, and s
 # Configuration Settings
 
 
-```
+```json
 {
     "Web": {
         "Enable": true,
