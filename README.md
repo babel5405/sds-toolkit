@@ -84,7 +84,7 @@ A live reload web server with built in command processing, command delays, and s
 > ```
 > [
 >   "",                     **--Empty strings will be ignored automatically.**
->   "*.css",                **--Ignore all CSS files**
+>   "**.css",                **--Ignore all CSS files. (Note that both *'s are required.)**
 >   "\**/tests/\**/*",      **--Ignore the tests directory.**
 >  "readme.md",             **--Ignore any files called readme.md.**
 >  "^[a-z]$"                **--Ignore any files that match a regex rule. (Be careful when using regex, as json doesn't always play nice with the syntax.)**
