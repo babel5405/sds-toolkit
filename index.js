@@ -25,7 +25,7 @@ if (Chokidar != null) {
         Config.File.Excluded.splice(Config.File.Excluded.indexOf(""), 1)
     }
 
-    if (Config.File.ignoreDots == true) {
+    if (Config.File.IgnoreDots == true) {
         Config.File.Excluded.push(/(^|[\/\\])\../);
     }
 

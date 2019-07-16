@@ -11,10 +11,10 @@
         "Excluded": [
             ""
         ],
-        "ignoreDots": true,
+        "IgnoreDots": true,
         "Commands": {
             "Add": [
-                ["echo test", 0]
+                ["echo test", 0],
             ],
             "Remove": [
                 ["echo test", 0]
