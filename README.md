@@ -100,20 +100,20 @@ A live reload web server with built in command processing, command delays, and s
 > **Example (Don't copy-paste this into your config, it won't work.)**
 > ```
 > "Commands": {                                        **--This is the opening block of this section.**
-            "Add": [                                   **--This is the array which houses each command for the file added event.**
-                ["echo test", 0],                      **--This is a basic command, it does it's thing and has a delay of 0 seconds.**
-                ["echo test", 1],                      **--This is the same as the command above, except it has a delay of one second.**
-                ["lessc main.less main.css", 0],       **--This command uses file paths, all paths will be relative to the current working directory (cwd) of sds-toolkit.**
-                ["echo 'test 2'", 1],                  **--This command needs a string which must be quoted, it uses single quotes to avoid conflicts with the json syntax.**
-                ["echo completed", 0]                  **--This command is the last command, it doesn't have a comma (,) after it because it's the end of the list.**
-            ],
-            "Remove": [                                **--This is the array which houses each command for the file removed event.**
-                ["echo test", 0]
-            ],
-            "Save": [                                  **--This is the array which houses each command for the file changed event.**
-                ["echo test", 0]
-            ]
-        }
+>           "Add": [                                   **--This is the array which houses each command for the file added event.**
+>               ["echo test", 0],                      **--This is a basic command, it does it's thing and has a delay of 0 seconds.**
+>               ["echo test", 1],                      **--This is the same as the command above, except it has a delay of one second.**
+>               ["lessc main.less main.css", 0],       **--This command uses file paths, all paths will be relative to the current working directory (cwd) of sds-toolkit.**
+>               ["echo 'test 2'", 1],                  **--This command needs a string which must be quoted, it uses single quotes to avoid conflicts with the json syntax.**
+>               ["echo completed", 0]                  **--This command is the last command, it doesn't have a comma (,) after it because it's the end of the list.**
+>           ],
+>           "Remove": [                                **--This is the array which houses each command for the file removed event.**
+>               ["echo test", 0]
+>           ],
+>           "Save": [                                  **--This is the array which houses each command for the file changed event.**
+>               ["echo test", 0]
+>           ]
+>       }
 > ```
 
 **Log**
