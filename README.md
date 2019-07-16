@@ -102,8 +102,9 @@ A live reload web server with built in command processing, command delays, and s
 > **"Excluded":**
 > This is an array of files, extensions, and directories to ignore.
 > 
-> **Example (Don't copy-paste this into your config, it won't work.)**
 > ```
+> **Example (Don't copy-paste this into your config, it won't work.)**
+> 
 > [
 >   "",                     **--Empty strings will be ignored automatically.**
 >   "**.css",                **--Ignore all CSS files. (Note that both *'s are required.)**
@@ -119,8 +120,9 @@ A live reload web server with built in command processing, command delays, and s
 > **"Commands":**
 > This section is separated into three array's with arrays of commands, it's the most complicated portion of the config file.
 > 
-> **Example (Don't copy-paste this into your config, it won't work.)**
 > ```
+> **Example (Don't copy-paste this into your config, it won't work.)**
+> 
 > "Commands": {                                        **--This is the opening block of this section.**
 >           "Add": [                                   **--This is the array which houses each command for the file added event.**
 >               ["echo test", 0],                      **--This is a basic command, it does it's thing and has a delay of 0 seconds.**
