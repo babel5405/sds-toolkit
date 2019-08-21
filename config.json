@@ -1,9 +1,11 @@
 {
     "Web": {
         "Enable": true,
+        "EnableHistoryAPI": true,
         "Path": "./",
         "Port": 5500,
-        "ReloadDelay": 0
+        "ReloadDelay": 0,
+        "ConnectHistoryAPIFallbackRewrites": null
     },
     "File": {
         "Enable": true,
@@ -14,7 +16,7 @@
         "IgnoreDots": true,
         "Commands": {
             "Add": [
-                ["echo test", 0],
+                ["echo test", 0]
             ],
             "Remove": [
                 ["echo test", 0]

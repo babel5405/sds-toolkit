@@ -1,6 +1,7 @@
 const { exec } = require('child_process');
 let Config = require("./config.json");
 const {resolve} = require("path");
+let History =  require("connect-history-api-fallback");
 let Chokidar = null;
 let BrowserSync = null;
 
@@ -144,10 +145,37 @@ if (Chokidar != null) {
 }
 
 if (BrowserSync && !Chokidar) {
-    BrowserSync.init({
-        server: Config.Web.Path,
-        port: 5500
-    });
+    if (Config.Web.EnableHistoryAPI == true) {
+        if (Config.Web.ConnectHistoryAPIFallbackRewrites != null) {
+            BrowserSync.init({
+                server: {
+                    baseDir: Config.Web.Path,
+                    middleware: [
+                        historyFallback({
+                            rewrites: Config.Web.ConnectHistoryAPIFallbackRewrites
+                        })
+                    ]
+                },
+                port: Config.Web.Port
+
+            });
+        } else {
+            BrowserSync.init({
+                server: {
+                    baseDir: Config.Web.Path,
+                    middleware: [
+                        historyFallback()
+                    ]
+                },
+                port: Config.Web.Port
+            });
+        }
+    } else {
+        BrowserSync.init({
+            server: Config.Web.Path,
+            port: Config.Web.Port
+        });
+    }
 }
 
 function ReloadWeb() {
