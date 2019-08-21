@@ -151,7 +151,7 @@ if (BrowserSync && !Chokidar) {
                 server: {
                     baseDir: Config.Web.Path,
                     middleware: [
-                        historyFallback({
+                        History({
                             rewrites: Config.Web.ConnectHistoryAPIFallbackRewrites
                         })
                     ]
@@ -164,7 +164,7 @@ if (BrowserSync && !Chokidar) {
                 server: {
                     baseDir: Config.Web.Path,
                     middleware: [
-                        historyFallback()
+                        History()
                     ]
                 },
                 port: Config.Web.Port
