@@ -58,10 +58,7 @@ if (Chokidar != null) {
 
         // Start the Web Server after the File Watcher Loads:
         if (BrowserSync) {
-            BrowserSync.init({
-                server: Config.Web.Path,
-                port: 5500
-            });
+            StartBrowserSync()
         }
     })
 
@@ -145,6 +142,10 @@ if (Chokidar != null) {
 }
 
 if (BrowserSync && !Chokidar) {
+    StartBrowserSync()
+}
+
+function StartBrowserSync() {
     if (Config.Web.EnableHistoryAPI == true) {
         if (Config.Web.ConnectHistoryAPIFallbackRewrites != null) {
             BrowserSync.init({

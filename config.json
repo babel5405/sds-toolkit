@@ -5,24 +5,25 @@
         "Path": "./",
         "Port": 5500,
         "ReloadDelay": 0,
-        "ConnectHistoryAPIFallbackRewrites": null
+        "ConnectHistoryAPIFallbackRewrites": null,
+        "Index": "/index.html"
     },
     "File": {
         "Enable": true,
         "Path": "./",
         "Excluded": [
-            ""
+            "**.css"
         ],
         "IgnoreDots": true,
         "Commands": {
             "Add": [
-                ["echo test", 0]
+                ["lessc \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\less\\main.less\" \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\main.css\"", 0]
             ],
             "Remove": [
-                ["echo test", 0]
+                ["lessc \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\less\\main.less\" \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\main.css\"", 0]
             ],
             "Save": [
-                ["echo test", 0]
+                ["lessc \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\less\\main.less\" \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\main.css\"", 0]
             ]
         }
     },
