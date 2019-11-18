@@ -12,18 +12,14 @@
         "Enable": true,
         "Path": "./",
         "Excluded": [
-            "**.css"
         ],
         "IgnoreDots": true,
         "Commands": {
             "Add": [
-                ["lessc \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\less\\main.less\" \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\main.css\"", 0]
             ],
             "Remove": [
-                ["lessc \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\less\\main.less\" \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\main.css\"", 0]
             ],
             "Save": [
-                ["lessc \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\less\\main.less\" \"C:\\Users\\Bricyn\\Documents\\Working\\voyage-website-rebuild\\css\\main.css\"", 0]
             ]
         }
     },
