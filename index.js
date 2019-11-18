@@ -158,7 +158,6 @@ function StartBrowserSync() {
                     ]
                 },
                 port: Config.Web.Port
-
             });
         } else {
             BrowserSync.init({
@@ -229,7 +228,7 @@ function ExecuteCommand(command, delay) {
 
 // Supress non-breaking error message from fs.
 function logErr(response) {
-    if (response != "TypeError [ERR_INVALID_CALLBACK]: Callback must be a function") {
+    if (response != "TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined") {
         console.log("An Error Occurred: " + response);
     }
 }
